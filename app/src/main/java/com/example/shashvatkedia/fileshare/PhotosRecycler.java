@@ -12,7 +12,8 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 
-import static com.example.shashvatkedia.fileshare.sendActivity.thumbnails;
+import java.util.ArrayList;
+
 
 /**
  * Created by Shashvat Kedia on 03-10-2017.
@@ -21,22 +22,23 @@ import static com.example.shashvatkedia.fileshare.sendActivity.thumbnails;
 public class PhotosRecycler extends BaseAdapter {
     public Context context;
     public LayoutInflater inflater;
-
+    private ArrayList<PhotoData> photoData;
     class ViewHolder {
         ImageView photoImageView;
         ImageView tickImageView;
         int id;
     }
 
-    public PhotosRecycler(Context con) {
+    public PhotosRecycler(Context con, ArrayList<PhotoData> phData) {
          super();
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         context = con;
+        photoData = phData;
     }
 
     @Override
     public int getCount() {
-        return thumbnails.size();
+        return photoData.size();
     }
 
     @Override
@@ -62,7 +64,7 @@ public class PhotosRecycler extends BaseAdapter {
         else{
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.photoImageView.setImageBitmap(sendActivity.thumbnails.get(position));
+        holder.photoImageView.setImageBitmap(photoData.get(position).getThumbnail());
         holder.id = position;
         return convertView;
     }

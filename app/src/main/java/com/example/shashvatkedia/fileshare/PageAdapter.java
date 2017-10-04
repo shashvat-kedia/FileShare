@@ -5,13 +5,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import static com.example.shashvatkedia.fileshare.sendActivity.photos;
+
 /**
  * Created by Shashvat Kedia on 03-10-2017.
  */
 
 public class PageAdapter extends FragmentStatePagerAdapter {
     private int noOfTabs;
-    public Photos photos;
+
 
     public PageAdapter(FragmentManager fragManager,int noTabs){
         super(fragManager);
@@ -34,7 +36,7 @@ public class PageAdapter extends FragmentStatePagerAdapter {
                 return apps;
 
             case 3:
-                photos = new Photos();
+                sendActivity.photos = new Photos();
                 return photos;
 
             case 4:

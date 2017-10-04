@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,13 @@ import static android.R.attr.data;
 
 public class Photos extends Fragment {
     public static ViewGroup contain;
+    public static LayoutInflater inflate;
+    public static View finalView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        Intent inte = new Intent(getContext(),RetrievePhotos.class);
         contain = container;
-        startActivity(inte);
-        return null;
+        inflate = inflater;
+        return inflater.inflate(R.layout.fragment_photos,container,false);
     }
 
 }
